@@ -1,4 +1,4 @@
-import { InputNumber, Slider } from 'antd';
+import { InputNumber, Slider, ConfigProvider } from 'antd';
 import React, { useState } from 'react';
 
 export default function CategoryPrice() {
@@ -8,58 +8,62 @@ export default function CategoryPrice() {
   const handleChange = (min, max) => {
     setMinPrice(min);
     setMaxPrice(max);
-  };
+  };  
 
   return (
     <div className="categoryPrice" style={{ marginTop: '2rem' }}>
       <h3>Price</h3>
       <div className="slider" style={{ margin: '2rem 0' }}>
-        <div className="priceSlider">
-          <Slider
-            range
-            defaultValue={[200, 500]}
-            min={0}
-            max={1000}
-            onChange={([min, max]) => {
-              handleChange(min, max);
+        <ConfigProvider>
+          <div className="priceSlider">
+            <Slider
+              range
+              defaultValue={[200, 500]}
+              min={0}
+              max={1000}
+              onChange={([min, max]) => {
+                handleChange(min, max);
+              }}
+            />
+          </div>
+          <div
+            className="priceRange"
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'space-between',
             }}
-          />
-        </div>
-        <div
-          className="priceRange"
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-          }}
-        >
-          <div
-            className="minPrice"
-            style={{ display: 'flex', flexDirection: 'column' }}
           >
-            <span style={{fontWeight: 'bold', fontSize: 12}}>Min</span>
-            <InputNumber
-              min={0}
-              max={1000}
-              onChange={(value) => setMinPrice(value)}
-              value={minPrice}
-              controls={false}
-            />
+            <div
+              className="minPrice"
+              style={{ display: 'flex', flexDirection: 'column' }}
+            >
+              <span style={{ fontWeight: 'bold', fontSize: 12 }}>Min</span>
+              <InputNumber
+                min={0}
+                max={1000}
+                onChange={(value) => setMinPrice(value)}
+                value={minPrice}
+                controls={false}
+                defaultValue={200}
+              />
+            </div>
+            <div
+              className="maxPrice"
+              style={{ display: 'flex', flexDirection: 'column' }}
+            >
+              <span style={{ fontWeight: 'bold', fontSize: 12 }}>Max</span>
+              <InputNumber
+                min={0}
+                max={1000}
+                onChange={(value) => setMaxPrice(value)}
+                value={maxPrice}
+                controls={false}
+                defaultValue={500}
+              />
+            </div>
           </div>
-          <div
-            className="maxPrice"
-            style={{ display: 'flex', flexDirection: 'column' }}
-          >
-            <span style={{fontWeight: 'bold', fontSize: 12}}>Max</span>
-            <InputNumber
-              min={0}
-              max={1000}
-              onChange={(value) => setMaxPrice(value)}
-              value={maxPrice}
-              controls={false}
-            />
-          </div>
-        </div>
+        </ConfigProvider>
       </div>
     </div>
   );

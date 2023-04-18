@@ -36,7 +36,15 @@ function CategoryBrands(props) {
                 }}
               >
                 <Checkbox type="checkbox" name="checked" value={e} />
-                <span style={{ paddingLeft: '1rem'}}>{e}</span>
+                <span
+                  style={{
+                    display: 'flex',
+                    paddingLeft: '1rem',
+                    alignItems: 'center',
+                  }}
+                >
+                  {e}
+                </span>
               </div>
             );
           })}

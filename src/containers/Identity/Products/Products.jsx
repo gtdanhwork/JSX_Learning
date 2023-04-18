@@ -6,7 +6,7 @@ const Products = () => {
   const products = data.products;
 
   return (
-    <div className="products">
+    <div className="products" style={{width: '85%', margin: '0 2rem'}}>
       <ConfigProvider
         theme={{
           components: {
@@ -19,15 +19,14 @@ const Products = () => {
           },
         }}
       >
-        {' '}
         <List
-          grid={{ gutter: 16, column: 5 }}
+          grid={{column: 5 }}
           dataSource={products}
           bordered
           style={{ backgroundColor: '#EBEBEB' }}
           renderItem={(item) => (
             <div className="ant-list-items">
-              <List.Item>
+              <List.Item style={{padding:'0 1rem'}}>
                 <Card>
                   <span
                     style={{
@@ -35,7 +34,7 @@ const Products = () => {
                       padding: '0 1rem',
                       color: '#6A983C',
                       borderRadius: '2rem',
-                      fontWeight: 'bold'
+                      fontWeight: 'bold',
                     }}
                   >
                     - 36 %

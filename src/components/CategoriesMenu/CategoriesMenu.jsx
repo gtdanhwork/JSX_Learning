@@ -7,7 +7,7 @@ import CategoryPrice from './CategoriesPrice/CategoryPrice';
 
 function CategoriesMenu() {
   return (
-    <div className="categoriesMenu" style={{width: '15%', padding: '1rem'}}>
+    <div className="categoriesMenu" style={{width: '15%', padding: '1rem', background: '#F9F9F9'}}>
       <CategoryTotals brands={data.brands} />
       <CategoryBrands brands={data.brands} />
       <CategoryRatings />
