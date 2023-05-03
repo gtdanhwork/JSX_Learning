@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { Checkbox } from 'antd';
+import { Checkbox, ConfigProvider } from 'antd';
 import { Field, Form, Formik } from 'formik';
 import React from 'react';
 
@@ -35,7 +35,19 @@ function CategoryBrands(props) {
                   margin: '10px 0',
                 }}
               >
-                <Checkbox type="checkbox" name="checked" value={e} />
+                <ConfigProvider
+                  theme={{
+                    components: {
+                      Checkbox: {
+                        colorPrimary: '#6A983C',
+                        colorPrimaryHover: '#6A983C',
+                        colorPrimaryBorder: '#46760A',
+                      },
+                    },
+                  }}
+                >
+                  <Checkbox type="checkbox" name="checked" value={e} />
+                </ConfigProvider>
                 <span
                   style={{
                     display: 'flex',
